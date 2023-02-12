@@ -35,7 +35,7 @@ def load_clf():
 def home():
     return "Congratulations! Your API is working as expected. Now head over to http://localhost:80/docs"
 
-
+# Return a dictionary (which FastAPI will convert into JSON) containing the prediction 
 @app.post("/predict")
 def predict(wine: Wine):
     data_point = np.array(
