@@ -1,0 +1,2 @@
+apache-beam==2.32
+tensorflow-transform==1.3.0

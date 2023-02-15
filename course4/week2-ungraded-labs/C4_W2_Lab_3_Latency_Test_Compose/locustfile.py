@@ -9,21 +9,24 @@ class LoadTest(HttpUser):
     def predict_batch_1(self):
         request_body = {"batches": [[1.0 for i in range(13)]]}
         self.client.post(
-            "http://batch-1:80/predict", json=request_body, name="batch-1"
+            # "http://batch-1:80/predict", json=request_body, name="batch-1"
+            "http://batch-1:81/predict", json=request_body, name="batch-1"
         )
 
     @task
     def predict_batch_32(self):
         request_body = {"batches": [[1.0 for i in range(13)] for i in range(32)]}
         self.client.post(
-            "http://batch-32:80/predict", json=request_body, name="batch-32"
+            # "http://batch-32:80/predict", json=request_body, name="batch-32"
+            "http://batch-32:81/predict", json=request_body, name="batch-32"
         )
 
     @task
     def predict_batch_64(self):
         request_body = {"batches": [[1.0 for i in range(13)] for i in range(64)]}
         self.client.post(
-            "http://batch-64:80/predict", json=request_body, name="batch-64"
+            # "http://batch-64:80/predict", json=request_body, name="batch-64"
+            "http://batch-64:81/predict", json=request_body, name="batch-64"
         )
 
     @task
@@ -44,5 +47,6 @@ class LoadTest(HttpUser):
             "proline": 1.0,
         }
         self.client.post(
-            "http://no-batch:80/predict", json=request_body, name="0:batch"
+            # "http://no-batch:80/predict", json=request_body, name="0:batch"
+            "http://no-batch:82/predict", json=request_body, name="0:batch"
         )
